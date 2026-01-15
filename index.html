@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>80fmt - テキスト整形ツール</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css"
+    />
+    <link rel="stylesheet" href="./lib/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>80fmt</h1>
+      </header>
+
+      <div class="toolbar">
+        <div class="toolbar-section">
+          <button id="loadFile" class="btn btn-primary">ファイルを開く</button>
+          <input
+            type="file"
+            id="fileInput"
+            accept=".txt,.md"
+            style="display: none"
+          />
+          <button id="downloadFile" class="btn btn-primary">
+            ダウンロード
+          </button>
+        </div>
+
+        <div class="toolbar-section">
+          <label for="lineWidth">行幅</label>
+          <input
+            type="number"
+            id="lineWidth"
+            min="40"
+            max="200"
+            value="80"
+            class="input-small"
+          />
+          <button id="formatWrap" class="btn">折り返し</button>
+        </div>
+
+        <div class="toolbar-section">
+          <label for="indentSize">インデント</label>
+          <input
+            type="number"
+            id="indentSize"
+            min="0"
+            max="20"
+            value="0"
+            class="input-small"
+          />
+          <button id="applyIndent" class="btn">適用</button>
+        </div>
+
+        <div class="toolbar-section">
+          <button id="alignLeft" class="btn" title="左揃え">左揃え</button>
+          <button id="alignCenter" class="btn" title="中央揃え">
+            中央揃え
+          </button>
+          <button id="alignRight" class="btn" title="右揃え">右揃え</button>
+        </div>
+      </div>
+
+      <div class="editor-container">
+        <textarea id="editor"></textarea>
+      </div>
+
+      <div class="info-bar">
+        <span id="lineCount">行: 0</span>
+        <span id="charCount">文字: 0</span>
+        <span id="selectionInfo"></span>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="./lib/app.js"></script>
+  </body>
+</html>
